@@ -1,0 +1,12 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'EasyFrame', :exclusive => true do
+  pod "EasyFrame", :path => "../"
+end
+
+target 'Tests', :exclusive => true do
+  pod "EasyFrame", :path => "../"
+
+  pod 'Kiwi'
+  pod 'FBSnapshotTestCase'
+end
