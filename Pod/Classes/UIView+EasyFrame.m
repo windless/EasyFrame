@@ -37,7 +37,12 @@
 - (void)setEf_top:(CGFloat)top {
   CGRect originFrame = self.frame;
   CGFloat bottom = originFrame.origin.y + originFrame.size.height;
-  self.frame = CGRectMake(0, top, originFrame.size.width, bottom - top);
+  if (top > bottom) {
+    self.frame =
+        CGRectMake(originFrame.origin.x, top, originFrame.size.width, 0);
+  } else {
+    self.frame = CGRectMake(0, top, originFrame.size.width, bottom - top);
+  }
 }
 
 - (CGFloat)ef_left {
@@ -47,8 +52,13 @@
 - (void)setEf_left:(CGFloat)left {
   CGRect originFrame = self.frame;
   CGFloat right = originFrame.origin.x + originFrame.size.width;
-  self.frame = CGRectMake(left, originFrame.origin.y, right - left,
-                          originFrame.size.height);
+  if (left > right) {
+    self.frame =
+        CGRectMake(left, originFrame.origin.y, 0, originFrame.size.height);
+  } else {
+    self.frame = CGRectMake(left, originFrame.origin.y, right - left,
+                            originFrame.size.height);
+  }
 }
 
 - (CGFloat)ef_right {
@@ -57,9 +67,14 @@
 
 - (void)setEf_right:(CGFloat)right {
   CGRect originFrame = self.frame;
-  self.frame =
-      CGRectMake(originFrame.origin.x, originFrame.origin.y,
-                 right - originFrame.origin.x, originFrame.size.height);
+  if (right < originFrame.origin.x) {
+    self.frame =
+        CGRectMake(right, originFrame.origin.y, 0, originFrame.size.height);
+  } else {
+    self.frame =
+        CGRectMake(originFrame.origin.x, originFrame.origin.y,
+                   right - originFrame.origin.x, originFrame.size.height);
+  }
 }
 
 - (CGFloat)ef_bottom {
@@ -68,9 +83,14 @@
 
 - (void)setEf_bottom:(CGFloat)bottom {
   CGRect originFrame = self.frame;
-  self.frame =
-      CGRectMake(originFrame.origin.x, originFrame.origin.y,
-                 originFrame.size.width, bottom - originFrame.origin.y);
+  if (bottom < originFrame.origin.y) {
+    self.frame =
+        CGRectMake(originFrame.origin.x, bottom, originFrame.size.width, 0);
+  } else {
+    self.frame =
+        CGRectMake(originFrame.origin.x, originFrame.origin.y,
+                   originFrame.size.width, bottom - originFrame.origin.y);
+  }
 }
 
 - (CGFloat)ef_centerX {
