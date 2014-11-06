@@ -31,7 +31,7 @@
 }
 
 - (CGFloat)ef_top {
-  return self.frame.origin.x;
+  return self.frame.origin.y;
 }
 
 - (void)setEf_top:(CGFloat)top {
@@ -46,7 +46,7 @@
 }
 
 - (CGFloat)ef_left {
-  return self.frame.origin.y;
+  return self.frame.origin.x;
 }
 
 - (void)setEf_left:(CGFloat)left {
@@ -62,7 +62,7 @@
 }
 
 - (CGFloat)ef_right {
-  return self.frame.origin.y + self.frame.size.width;
+  return self.frame.origin.x + self.frame.size.width;
 }
 
 - (void)setEf_right:(CGFloat)right {
@@ -78,7 +78,7 @@
 }
 
 - (CGFloat)ef_bottom {
-  return self.frame.origin.x + self.frame.size.height;
+  return self.frame.origin.y + self.frame.size.height;
 }
 
 - (void)setEf_bottom:(CGFloat)bottom {
