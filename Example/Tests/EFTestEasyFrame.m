@@ -15,31 +15,31 @@ describe(@"UIView", ^{
         __block UIView *view;
         beforeAll(^{
             view = [[UIView alloc] init];
-            view.frame = CGRectMake(100, 100, 100, 100);
+            view.frame = CGRectMake(1, 2, 3, 4);
         });
 
         it(@"has right width",
-           ^{ [[theValue(view.ef_width) should] equal:@100]; });
+           ^{ [[theValue(view.ef_width) should] equal:@3]; });
 
         it(@"has right height",
-           ^{ [[theValue(view.ef_height) should] equal:@100]; });
+           ^{ [[theValue(view.ef_height) should] equal:@4]; });
 
-        it(@"has right top", ^{ [[theValue(view.ef_top) should] equal:@100]; });
+        it(@"has right top", ^{ [[theValue(view.ef_top) should] equal:@2]; });
 
         it(@"has right left",
-           ^{ [[theValue(view.ef_left) should] equal:@100]; });
+           ^{ [[theValue(view.ef_left) should] equal:@1]; });
 
         it(@"has the right right",
-           ^{ [[theValue(view.ef_right) should] equal:@200]; });
+           ^{ [[theValue(view.ef_right) should] equal:@4]; });
 
         it(@"has the right bottom",
-           ^{ [[theValue(view.ef_bottom) should] equal:@200]; });
+           ^{ [[theValue(view.ef_bottom) should] equal:@6]; });
 
         it(@"has the right centerX",
-           ^{ [[theValue(view.ef_centerX) should] equal:@150]; });
+           ^{ [[theValue(view.ef_centerX) should] equal:@2.5]; });
 
         it(@"has the right centerY",
-           ^{ [[theValue(view.ef_centerY) should] equal:@150]; });
+           ^{ [[theValue(view.ef_centerY) should] equal:@4]; });
     });
 
     it(@"has right frame after setting width", ^{
