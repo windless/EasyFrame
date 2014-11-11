@@ -19,6 +19,7 @@
 @property(nonatomic, assign) CGFloat ef_centerX;
 @property(nonatomic, assign) CGFloat ef_centerY;
 
+- (void)ef_centerIn:(UIView *)parent;
 - (void)ef_horizontalCenterIn:(UIView *)parent;
 - (void)ef_verticalCenterIn:(UIView *)parent;
 - (void)ef_above:(UIView *)view withMargin:(CGFloat)margin;

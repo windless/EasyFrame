@@ -36,13 +36,8 @@
 
 - (void)setEf_top:(CGFloat)top {
   CGRect originFrame = self.frame;
-  CGFloat bottom = originFrame.origin.y + originFrame.size.height;
-  if (top > bottom) {
-    self.frame =
-        CGRectMake(originFrame.origin.x, top, originFrame.size.width, 0);
-  } else {
-    self.frame = CGRectMake(0, top, originFrame.size.width, bottom - top);
-  }
+  self.frame = CGRectMake(originFrame.origin.x, top,
+                          originFrame.size.width, originFrame.size.height);
 }
 
 - (CGFloat)ef_left {
@@ -51,14 +46,8 @@
 
 - (void)setEf_left:(CGFloat)left {
   CGRect originFrame = self.frame;
-  CGFloat right = originFrame.origin.x + originFrame.size.width;
-  if (left > right) {
-    self.frame =
-        CGRectMake(left, originFrame.origin.y, 0, originFrame.size.height);
-  } else {
-    self.frame = CGRectMake(left, originFrame.origin.y, right - left,
-                            originFrame.size.height);
-  }
+  self.frame = CGRectMake(left, originFrame.origin.y,
+                          originFrame.size.width, originFrame.size.height);
 }
 
 - (CGFloat)ef_right {
@@ -67,14 +56,8 @@
 
 - (void)setEf_right:(CGFloat)right {
   CGRect originFrame = self.frame;
-  if (right < originFrame.origin.x) {
-    self.frame =
-        CGRectMake(right, originFrame.origin.y, 0, originFrame.size.height);
-  } else {
-    self.frame =
-        CGRectMake(originFrame.origin.x, originFrame.origin.y,
-                   right - originFrame.origin.x, originFrame.size.height);
-  }
+  self.frame = CGRectMake(right - originFrame.size.width, originFrame.origin.y,
+                          originFrame.size.width, originFrame.size.height);
 }
 
 - (CGFloat)ef_bottom {
@@ -83,14 +66,9 @@
 
 - (void)setEf_bottom:(CGFloat)bottom {
   CGRect originFrame = self.frame;
-  if (bottom < originFrame.origin.y) {
-    self.frame =
-        CGRectMake(originFrame.origin.x, bottom, originFrame.size.width, 0);
-  } else {
-    self.frame =
-        CGRectMake(originFrame.origin.x, originFrame.origin.y,
-                   originFrame.size.width, bottom - originFrame.origin.y);
-  }
+  self.frame = CGRectMake(originFrame.origin.x,
+                          bottom - originFrame.size.height,
+                          originFrame.size.width, originFrame.size.height);
 }
 
 - (CGFloat)ef_centerX {
@@ -107,6 +85,11 @@
 
 - (void)setEf_centerY:(CGFloat)centerY {
   self.center = CGPointMake(self.center.x, centerY);
+}
+
+- (void)ef_centerIn:(UIView *)parent {
+  CGSize parentSize = parent.frame.size;
+  self.center = CGPointMake(parentSize.width / 2, parentSize.height / 2);
 }
 
 - (void)ef_horizontalCenterIn:(UIView *)parent {

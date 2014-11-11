@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "EasyFrame"
-  s.version          = "0.1.1"
+  s.version          = "0.1.2"
   s.summary          = "Easy way to set UIView's frame"
   s.description      = <<-DESC
 "Easy way to set UIView's frame."

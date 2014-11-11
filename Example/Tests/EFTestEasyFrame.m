@@ -62,31 +62,15 @@ describe(@"UIView", ^{
         UIView *view = [[UIView alloc] init];
         view.frame = CGRectMake(0, 0, 100, 100);
         view.ef_top = 20;
-        [[theValue(CGRectEqualToRect(view.frame, CGRectMake(0, 20, 100, 80)))
+        [[theValue(CGRectEqualToRect(view.frame, CGRectMake(0, 20, 100, 100)))
                 should] beYes];
     });
-
-    it(@"has right frame when top is larger then bottom", ^{
-        UIView *view = [[UIView alloc] init];
-        view.frame = CGRectMake(0, 0, 100, 100);
-        view.ef_top = 200;
-        [[theValue(CGRectEqualToRect(view.frame, CGRectMake(0, 200, 100, 0)))
-                should] beYes];
-    });
-
+  
     it(@"has right frame after setting left", ^{
         UIView *view = [[UIView alloc] init];
         view.frame = CGRectMake(0, 0, 100, 100);
         view.ef_left = 20;
-        [[theValue(CGRectEqualToRect(view.frame, CGRectMake(20, 0, 80, 100)))
-                should] beYes];
-    });
-
-    it(@"has right frame when left is larger then right", ^{
-        UIView *view = [[UIView alloc] init];
-        view.frame = CGRectMake(0, 0, 100, 100);
-        view.ef_left = 200;
-        [[theValue(CGRectEqualToRect(view.frame, CGRectMake(200, 0, 0, 100)))
+        [[theValue(CGRectEqualToRect(view.frame, CGRectMake(20, 0, 100, 100)))
                 should] beYes];
     });
 
@@ -94,15 +78,7 @@ describe(@"UIView", ^{
         UIView *view = [[UIView alloc] init];
         view.frame = CGRectMake(0, 0, 100, 100);
         view.ef_right = 80;
-        [[theValue(CGRectEqualToRect(view.frame, CGRectMake(0, 0, 80, 100)))
-                should] beYes];
-    });
-
-    it(@"has right frame when right is smaller than left", ^{
-        UIView *view = [[UIView alloc] init];
-        view.frame = CGRectMake(100, 100, 100, 100);
-        view.ef_right = 90;
-        [[theValue(CGRectEqualToRect(view.frame, CGRectMake(90, 100, 0, 100)))
+        [[theValue(CGRectEqualToRect(view.frame, CGRectMake(-20, 0, 100, 100)))
                 should] beYes];
     });
 
@@ -110,15 +86,7 @@ describe(@"UIView", ^{
         UIView *view = [[UIView alloc] init];
         view.frame = CGRectMake(0, 0, 100, 100);
         view.ef_bottom = 80;
-        [[theValue(CGRectEqualToRect(view.frame, CGRectMake(0, 0, 100, 80)))
-                should] beYes];
-    });
-
-    it(@"has right frame when bottom is smaller than top", ^{
-        UIView *view = [[UIView alloc] init];
-        view.frame = CGRectMake(0, 100, 100, 100);
-        view.ef_bottom = 90;
-        [[theValue(CGRectEqualToRect(view.frame, CGRectMake(0, 90, 100, 0)))
+        [[theValue(CGRectEqualToRect(view.frame, CGRectMake(0, -20, 100, 100)))
                 should] beYes];
     });
 

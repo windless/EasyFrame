@@ -13,26 +13,34 @@ SPEC_BEGIN(EFTestEasyFrameWithParentView)
 describe(@"Relative layout", ^{
     context(@"with parent view", ^{
         __block UIView *parentView;
+        __block UIView *view;
         beforeAll(^{
             parentView = [[UIView alloc] init];
-            parentView.frame = CGRectMake(0, 0, 200, 200);
+            parentView.frame = CGRectMake(10, 20, 300, 400);
+            view = [[UIView alloc] init];
         });
 
-        it(@"horizontal center in parent", ^{
-            UIView *view = [[UIView alloc] init];
+        it(@"is horizontal center in parent", ^{
             view.frame = CGRectMake(0, 0, 100, 100);
             [view ef_horizontalCenterIn:parentView];
             [[theValue(CGRectEqualToRect(
-                view.frame, CGRectMake(50, 0, 100, 100))) should] beYes];
+                view.frame, CGRectMake(100, 0, 100, 100))) should] beYes];
         });
 
-        it(@"vertical center in parent", ^{
-            UIView *view = [[UIView alloc] init];
+        it(@"is vertical center in parent", ^{
             view.frame = CGRectMake(0, 0, 100, 100);
             [view ef_verticalCenterIn:parentView];
             [[theValue(CGRectEqualToRect(
-                view.frame, CGRectMake(0, 50, 100, 100))) should] beYes];
+                view.frame, CGRectMake(0, 150, 100, 100))) should] beYes];
         });
+
+        it(@"is center in parent view", ^{
+            view.frame = CGRectMake(0, 0, 100, 100);
+            [view ef_centerIn:parentView];
+            [[theValue(CGPointEqualToPoint(view.center, CGPointMake(150, 200)))
+                    should] beYes];
+        });
+
     });
 
     context(@"with other view", ^{
