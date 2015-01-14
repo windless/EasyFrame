@@ -123,4 +123,57 @@
                           self.ef_height);
 }
 
+- (CGFloat)ef_xleft {
+  return self.ef_left;
+}
+
+- (void)setEf_xleft:(CGFloat)ef_xleft {
+  if (ef_xleft > self.ef_right) {
+    self.ef_width = 0;
+  } else {
+    self.ef_width = self.ef_right - ef_xleft;
+  }
+  self.ef_left = ef_xleft;
+}
+
+- (CGFloat)ef_xright {
+  return self.ef_right;
+}
+
+- (void)setEf_xright:(CGFloat)ef_xright {
+  if (ef_xright < self.ef_left) {
+    self.ef_width = 0;
+  } else {
+    self.ef_width = ef_xright - self.ef_left;
+  }
+  self.ef_right = ef_xright;
+}
+
+- (CGFloat)ef_xtop {
+  return self.ef_top;
+}
+
+- (void)setEf_xtop:(CGFloat)ef_xtop {
+  if (ef_xtop > self.ef_bottom) {
+    self.ef_height = 0;
+  } else {
+    self.ef_height = self.ef_bottom - ef_xtop;
+  }
+  self.ef_top = ef_xtop;
+}
+
+- (CGFloat)ef_xbottom {
+  return self.ef_bottom;
+}
+
+- (void)setEf_xbottom:(CGFloat)ef_xbottom {
+  if (ef_xbottom < self.ef_top) {
+    self.ef_height = 0;
+  } else {
+    self.ef_height = ef_xbottom - self.ef_top;
+  }
+  self.ef_bottom = ef_xbottom;
+}
+
+
 @end

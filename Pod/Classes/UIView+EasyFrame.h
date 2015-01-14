@@ -18,6 +18,10 @@
 @property(nonatomic, assign) CGFloat ef_right;
 @property(nonatomic, assign) CGFloat ef_centerX;
 @property(nonatomic, assign) CGFloat ef_centerY;
+@property (nonatomic, assign) CGFloat ef_xleft;
+@property (nonatomic, assign) CGFloat ef_xright;
+@property (nonatomic, assign) CGFloat ef_xtop;
+@property (nonatomic, assign) CGFloat ef_xbottom;
 
 - (void)ef_centerIn:(UIView *)parent;
 - (void)ef_horizontalCenterIn:(UIView *)parent;
