@@ -18,17 +18,24 @@
 @property(nonatomic, assign) CGFloat ef_right;
 @property(nonatomic, assign) CGFloat ef_centerX;
 @property(nonatomic, assign) CGFloat ef_centerY;
-@property (nonatomic, assign) CGFloat ef_xleft;
-@property (nonatomic, assign) CGFloat ef_xright;
-@property (nonatomic, assign) CGFloat ef_xtop;
-@property (nonatomic, assign) CGFloat ef_xbottom;
+@property(nonatomic, assign) CGFloat ef_xleft;
+@property(nonatomic, assign) CGFloat ef_xright;
+@property(nonatomic, assign) CGFloat ef_xtop;
+@property(nonatomic, assign) CGFloat ef_xbottom;
+@property(nonatomic, assign) CGSize ef_size;
 
 - (void)ef_centerIn:(UIView *)parent;
+
 - (void)ef_horizontalCenterIn:(UIView *)parent;
+
 - (void)ef_verticalCenterIn:(UIView *)parent;
+
 - (void)ef_above:(UIView *)view withMargin:(CGFloat)margin;
+
 - (void)ef_below:(UIView *)view withMargin:(CGFloat)margin;
+
 - (void)ef_toLeftOf:(UIView *)view withMargin:(CGFloat)margin;
+
 - (void)ef_toRightOf:(UIView *)view withMargin:(CGFloat)margin;
 
 @end
