@@ -15,9 +15,9 @@
 }
 
 - (void)setEf_width:(CGFloat)width {
-  CGRect originFrame = self.frame;
-  self.frame = CGRectMake(originFrame.origin.x, originFrame.origin.y, width,
-      originFrame.size.height);
+  CGRect newFrame = self.frame;
+  newFrame.size.width = width;
+  self.frame = newFrame;
 }
 
 - (CGFloat)ef_height {
@@ -25,9 +25,9 @@
 }
 
 - (void)setEf_height:(CGFloat)height {
-  CGRect originFrame = self.frame;
-  self.frame = CGRectMake(originFrame.origin.x, originFrame.origin.y,
-      originFrame.size.width, height);
+  CGRect newFrame = self.frame;
+  newFrame.size.height = height;
+  self.frame = newFrame;
 }
 
 - (CGFloat)ef_top {
@@ -35,9 +35,9 @@
 }
 
 - (void)setEf_top:(CGFloat)top {
-  CGRect originFrame = self.frame;
-  self.frame = CGRectMake(originFrame.origin.x, top,
-      originFrame.size.width, originFrame.size.height);
+  CGRect newFrame = self.frame;
+  newFrame.origin.y = top;
+  self.frame = newFrame;
 }
 
 - (CGFloat)ef_left {
@@ -45,9 +45,9 @@
 }
 
 - (void)setEf_left:(CGFloat)left {
-  CGRect originFrame = self.frame;
-  self.frame = CGRectMake(left, originFrame.origin.y,
-      originFrame.size.width, originFrame.size.height);
+  CGRect newFrame = self.frame;
+  newFrame.origin.x = left;
+  self.frame = newFrame;
 }
 
 - (CGFloat)ef_right {
@@ -55,20 +55,19 @@
 }
 
 - (void)setEf_right:(CGFloat)right {
-  CGRect originFrame = self.frame;
-  self.frame = CGRectMake(right - originFrame.size.width, originFrame.origin.y,
-      originFrame.size.width, originFrame.size.height);
+  CGRect newFrame = self.frame;
+  newFrame.origin.x = right - self.ef_width;
+  self.frame = newFrame;
 }
 
 - (CGFloat)ef_bottom {
-  return self.frame.origin.y + self.frame.size.height;
+  return self.ef_top + self.ef_height;
 }
 
 - (void)setEf_bottom:(CGFloat)bottom {
-  CGRect originFrame = self.frame;
-  self.frame = CGRectMake(originFrame.origin.x,
-      bottom - originFrame.size.height,
-      originFrame.size.width, originFrame.size.height);
+  CGRect newFrame = self.frame;
+  newFrame.origin.y = bottom - self.ef_height;
+  self.frame = newFrame;
 }
 
 - (CGFloat)ef_centerX {
@@ -101,26 +100,19 @@
 }
 
 - (void)ef_above:(UIView *)view withMargin:(CGFloat)margin {
-  CGRect originFrame = self.frame;
-  self.frame =
-      CGRectMake(originFrame.origin.x, view.ef_top - self.ef_height - margin,
-          originFrame.size.width, originFrame.size.height);
+  self.ef_bottom = view.ef_top - margin;
 }
 
 - (void)ef_below:(UIView *)view withMargin:(CGFloat)margin {
-  CGRect originFrame = self.frame;
-  self.frame = CGRectMake(originFrame.origin.x, view.ef_bottom + margin,
-      originFrame.size.width, originFrame.size.height);
+  self.ef_top = view.ef_bottom + margin;
 }
 
 - (void)ef_toLeftOf:(UIView *)view withMargin:(CGFloat)margin {
-  self.frame = CGRectMake(view.ef_left - margin - self.ef_width, self.ef_top,
-      self.ef_width, self.ef_height);
+  self.ef_right = view.ef_left - margin;
 }
 
 - (void)ef_toRightOf:(UIView *)view withMargin:(CGFloat)margin {
-  self.frame = CGRectMake(view.ef_right + margin, self.ef_top, self.ef_width,
-      self.ef_height);
+  self.ef_left = view.ef_right + margin;
 }
 
 - (CGFloat)ef_xleft {
