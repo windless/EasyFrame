@@ -1,6 +1,6 @@
 # EasyFrame
 
-[![CI Status](http://img.shields.io/travis/Abner Zhong/EasyFrame.svg?style=flat)](https://travis-ci.org/Abner Zhong/EasyFrame)
+[![CI Status](http://img.shields.io/travis/windless/EasyFrame.svg?style=flat)](https://travis-ci.org/windless/EasyFrame)
 [![Version](https://img.shields.io/cocoapods/v/EasyFrame.svg?style=flat)](http://cocoadocs.org/docsets/EasyFrame)
 [![License](https://img.shields.io/cocoapods/l/EasyFrame.svg?style=flat)](http://cocoadocs.org/docsets/EasyFrame)
 [![Platform](https://img.shields.io/cocoapods/p/EasyFrame.svg?style=flat)](http://cocoadocs.org/docsets/EasyFrame)
